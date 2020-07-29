@@ -1,0 +1,577 @@
+﻿{
+  "x-generator": "NSwag v13.2.2.0 (NJsonSchema v10.1.4.0 (Newtonsoft.Json v12.0.0.0))",
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Admin Portal API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/HealthService": {
+      "get": {
+        "tags": [
+          "HealthService"
+        ],
+        "operationId": "HealthService_GetHealthCheckInfo",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/HealthCheckInfo"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Messages/message-types": {
+      "get": {
+        "tags": [
+          "Messages"
+        ],
+        "operationId": "Messages_GetMessageTypes",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MessageTypeDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Messages": {
+      "post": {
+        "tags": [
+          "Messages"
+        ],
+        "operationId": "Messages_GetMessages",
+        "requestBody": {
+          "x-name": "messageFilters",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MessageFilters"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedMessagesOfArchivedMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Messages/resubmitMessage": {
+      "post": {
+        "tags": [
+          "Messages"
+        ],
+        "operationId": "Messages_ResubmitMessage",
+        "parameters": [
+          {
+            "name": "messageId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Messages/deadletters": {
+      "post": {
+        "tags": [
+          "Messages"
+        ],
+        "operationId": "Messages_GetDeadLetterMessages",
+        "requestBody": {
+          "x-name": "messageFilters",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MessageFilters"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedMessagesOfDeadLetter"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ServiceBus/servicebus-queues": {
+      "get": {
+        "tags": [
+          "ServiceBus"
+        ],
+        "operationId": "ServiceBus_GetServiceBusQueues",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ServiceBus/resubmitDeadLetter": {
+      "post": {
+        "tags": [
+          "ServiceBus"
+        ],
+        "operationId": "ServiceBus_ResubmitDeadLetter",
+        "parameters": [
+          {
+            "name": "messageId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "sequenceNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "sbQueue",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 3
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/WeatherForecast": {
+      "get": {
+        "tags": [
+          "WeatherForecast"
+        ],
+        "operationId": "WeatherForecast_Get",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "HealthCheckInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "healthCheckRequest": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/HealthCheckRequest"
+              }
+            ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/HealthCheckResponseStatus"
+          },
+          "healthCheckResponses": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/HealthCheckResponse"
+            }
+          }
+        }
+      },
+      "HealthCheckRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/MessageBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "expectedServices": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "MessageBase": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "properties": {
+          "correlationId": {
+            "type": "string",
+            "nullable": true
+          },
+          "messageDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "messageId": {
+            "type": "string",
+            "nullable": true
+          },
+          "messageType": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "HealthCheckResponseStatus": {
+        "type": "integer",
+        "description": "",
+        "x-enumNames": [
+          "Success",
+          "Warning",
+          "Error"
+        ],
+        "enum": [
+          1,
+          2,
+          3
+        ]
+      },
+      "HealthCheckResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/MessageBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "appName": {
+                "type": "string",
+                "nullable": true
+              },
+              "responseStatus": {
+                "$ref": "#/components/schemas/HealthCheckResponseStatus"
+              },
+              "description": {
+                "type": "string",
+                "nullable": true
+              },
+              "testResults": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/HealthCheckTestResult"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "HealthCheckTestResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "responseStatus": {
+            "$ref": "#/components/schemas/HealthCheckResponseStatus"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "MessageTypeDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullName": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "PagedMessagesOfArchivedMessage": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "messages": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/ArchivedMessage"
+            }
+          }
+        }
+      },
+      "ArchivedMessage": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "message": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/MessageBase"
+              }
+            ]
+          },
+          "messageDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "messageTypeName": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "MessageFilters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "dateFrom": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dateTo": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "sbQueue": {
+            "type": "string",
+            "nullable": true
+          },
+          "typeName": {
+            "type": "string",
+            "nullable": true
+          },
+          "messageType": {
+            "type": "string",
+            "nullable": true
+          },
+          "messageId": {
+            "type": "string",
+            "nullable": true
+          },
+          "correlationId": {
+            "type": "string",
+            "nullable": true
+          },
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "PagedMessagesOfDeadLetter": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "messages": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/DeadLetter"
+            }
+          }
+        }
+      },
+      "DeadLetter": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "message": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/MessageBase"
+              }
+            ]
+          },
+          "messageDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "messageTypeName": {
+            "type": "string",
+            "nullable": true
+          },
+          "deadLetterReason": {
+            "type": "string",
+            "nullable": true
+          },
+          "deadLetterErrorDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "sequenceNumber": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "subscriptionName": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "WeatherForecast": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "temperatureC": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "temperatureF": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "summary": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      }
+    }
+  }
+}

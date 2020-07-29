@@ -1,0 +1,3 @@
+name: MagicBus.Deploy
+runtime: dotnet
+description: deploy magicBus to azure with pulumi

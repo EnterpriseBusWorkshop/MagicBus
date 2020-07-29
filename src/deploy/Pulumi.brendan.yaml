@@ -1,0 +1,7 @@
+config:
+  MagicBus.Deploy:SmtpHost: smtp.sendgrid.net
+  MagicBus.Deploy:SmtpPassword:
+    secure: AAABAHEz8qYzL4/o0RtGoZj0u2Efw7ycFLdBXNwwIZZZRNaAVATXy27yXArD/Jq9D6GrjgH5vHgqMlPq8q2tDkSJTPIWsh6uMw5u+FZjVJZA/jUMQNntW3Rdz9UKDEPgkgQvheo=
+  MagicBus.Deploy:SmtpPort: "587"
+  MagicBus.Deploy:SmtpUsername: apikey
+  azure:location: AustraliaEast

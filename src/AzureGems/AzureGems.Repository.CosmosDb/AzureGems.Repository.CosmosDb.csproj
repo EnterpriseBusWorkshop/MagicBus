@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AzureGems.CosmosDb\AzureGems.CosmosDb.csproj" />
+    <ProjectReference Include="..\AzureGems.Repository.Abstractions\AzureGems.Repository.Abstractions.csproj" />
+  </ItemGroup>
+
+</Project>

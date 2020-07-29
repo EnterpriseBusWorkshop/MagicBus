@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Pulumi.Azure" Version="3.*" />
+    <PackageReference Include="Pulumi.Docker" Version="2.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MagicBus.Fulfilment\MagicBus.Fulfilment.csproj" />
+    <ProjectReference Include="..\MagicBus.MappingService\MagicBus.MappingService.csproj" />
+    <ProjectReference Include="..\MagicBus.Messages\MagicBus.Messages.csproj" />
+    <ProjectReference Include="..\MagicBus.Shop\MagicBus.Shop.csproj" />
+  </ItemGroup>
+
+</Project>

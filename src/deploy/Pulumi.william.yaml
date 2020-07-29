@@ -1,0 +1,11 @@
+config:
+  MagicBus.Deploy:ShopAccessToken:
+    secure: AAABANQWNwr8Uojgak+JMxrpPiZ2O01qFZ7gSKVsmLa/ct4TbcDbEh9poi+QLvyMBHgwfSABAF5p0iiwF/sGsAvEd4S+JA==
+  MagicBus.Deploy:ShopUrl: blueskycloudproducts.myshopify.com
+  MagicBus.Deploy:SmtpHost: smtp.sendgrid.net
+  MagicBus.Deploy:SmtpPassword:
+    secure: AAABAO1FyYA8eD4sM+SpcxheicoTyQvawCQhzylPxqsVFB2YaQ2o2UbCztNhuIWvq2eWR2xI/qEhzH9n8m6d+BELAc4qtudzGkdlrtem0dzKuecJ1uM++fWzvBd/R8bmBhKLq5Y=
+  MagicBus.Deploy:SmtpPort: "587"
+  MagicBus.Deploy:SmtpUsername: apikey
+  MagicBus.Deploy:prefix: w
+  azure:location: AustraliaEast

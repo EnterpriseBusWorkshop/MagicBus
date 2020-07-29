@@ -1,0 +1,361 @@
+{
+  "id": 820982911946154508,
+  "email": "jon@doe.ca",
+  "closed_at": null,
+  "created_at": "2020-07-16T07:39:42-04:00",
+  "updated_at": "2020-07-16T07:39:42-04:00",
+  "number": 234,
+  "note": null,
+  "token": "123456abcd",
+  "gateway": null,
+  "test": true,
+  "total_price": "251.00",
+  "subtotal_price": "241.00",
+  "total_weight": 0,
+  "total_tax": "0.00",
+  "taxes_included": false,
+  "currency": "AUD",
+  "financial_status": "voided",
+  "confirmed": false,
+  "total_discounts": "5.00",
+  "total_line_items_price": "246.00",
+  "cart_token": null,
+  "buyer_accepts_marketing": true,
+  "name": "#9999",
+  "referring_site": null,
+  "landing_site": null,
+  "cancelled_at": "2020-07-16T07:39:42-04:00",
+  "cancel_reason": "customer",
+  "total_price_usd": null,
+  "checkout_token": null,
+  "reference": null,
+  "user_id": null,
+  "location_id": null,
+  "source_identifier": null,
+  "source_url": null,
+  "processed_at": null,
+  "device_id": null,
+  "phone": null,
+  "customer_locale": "en",
+  "app_id": null,
+  "browser_ip": null,
+  "landing_site_ref": null,
+  "order_number": 1234,
+  "discount_applications": [
+    {
+      "type": "manual",
+      "value": "5.0",
+      "value_type": "fixed_amount",
+      "allocation_method": "across",
+      "target_selection": "explicit",
+      "target_type": "line_item",
+      "description": "Discount",
+      "title": "Discount"
+    }
+  ],
+  "discount_codes": [],
+  "note_attributes": [],
+  "payment_gateway_names": [
+    "visa",
+    "bogus"
+  ],
+  "processing_method": "",
+  "checkout_id": null,
+  "source_name": "web",
+  "fulfillment_status": "pending",
+  "tax_lines": [],
+  "tags": "",
+  "contact_email": "jon@doe.ca",
+  "order_status_url": "https:\\/\\/blueskycloudproducts.myshopify.com\\/41089400982\\/orders\\/123456abcd\\/authenticate?key=abcdefg",
+  "presentment_currency": "AUD",
+  "total_line_items_price_set": {
+    "shop_money": {
+      "amount": "246.00",
+      "currency_code": "AUD"
+    },
+    "presentment_money": {
+      "amount": "246.00",
+      "currency_code": "AUD"
+    }
+  },
+  "total_discounts_set": {
+    "shop_money": {
+      "amount": "5.00",
+      "currency_code": "AUD"
+    },
+    "presentment_money": {
+      "amount": "5.00",
+      "currency_code": "AUD"
+    }
+  },
+  "total_shipping_price_set": {
+    "shop_money": {
+      "amount": "10.00",
+      "currency_code": "AUD"
+    },
+    "presentment_money": {
+      "amount": "10.00",
+      "currency_code": "AUD"
+    }
+  },
+  "subtotal_price_set": {
+    "shop_money": {
+      "amount": "241.00",
+      "currency_code": "AUD"
+    },
+    "presentment_money": {
+      "amount": "241.00",
+      "currency_code": "AUD"
+    }
+  },
+  "total_price_set": {
+    "shop_money": {
+      "amount": "251.00",
+      "currency_code": "AUD"
+    },
+    "presentment_money": {
+      "amount": "251.00",
+      "currency_code": "AUD"
+    }
+  },
+  "total_tax_set": {
+    "shop_money": {
+      "amount": "0.00",
+      "currency_code": "AUD"
+    },
+    "presentment_money": {
+      "amount": "0.00",
+      "currency_code": "AUD"
+    }
+  },
+  "line_items": [
+    {
+      "id": 866550311766439020,
+      "variant_id": 34657409433750,
+      "title": "Cirrus Cloud",
+      "quantity": 1,
+      "sku": "50",
+      "variant_title": null,
+      "vendor": null,
+      "fulfillment_service": "manual",
+      "product_id": 5309959667862,
+      "requires_shipping": true,
+      "taxable": true,
+      "gift_card": false,
+      "name": "Cirrus Cloud",
+      "variant_inventory_management": "shopify",
+      "properties": [],
+      "product_exists": true,
+      "fulfillable_quantity": 1,
+      "grams": 0,
+      "price": "123.00",
+      "total_discount": "0.00",
+      "fulfillment_status": null,
+      "price_set": {
+        "shop_money": {
+          "amount": "123.00",
+          "currency_code": "AUD"
+        },
+        "presentment_money": {
+          "amount": "123.00",
+          "currency_code": "AUD"
+        }
+      },
+      "total_discount_set": {
+        "shop_money": {
+          "amount": "0.00",
+          "currency_code": "AUD"
+        },
+        "presentment_money": {
+          "amount": "0.00",
+          "currency_code": "AUD"
+        }
+      },
+      "discount_allocations": [],
+      "duties": [],
+      "admin_graphql_api_id": "gid:\\/\\/shopify\\/LineItem\\/866550311766439020",
+      "tax_lines": []
+    },
+    {
+      "id": 141249953214522974,
+      "variant_id": 34657409433750,
+      "title": "Cirrus Cloud",
+      "quantity": 1,
+      "sku": "50",
+      "variant_title": null,
+      "vendor": null,
+      "fulfillment_service": "manual",
+      "product_id": 5309959667862,
+      "requires_shipping": true,
+      "taxable": true,
+      "gift_card": false,
+      "name": "Cirrus Cloud",
+      "variant_inventory_management": "shopify",
+      "properties": [],
+      "product_exists": true,
+      "fulfillable_quantity": 1,
+      "grams": 0,
+      "price": "123.00",
+      "total_discount": "5.00",
+      "fulfillment_status": null,
+      "price_set": {
+        "shop_money": {
+          "amount": "123.00",
+          "currency_code": "AUD"
+        },
+        "presentment_money": {
+          "amount": "123.00",
+          "currency_code": "AUD"
+        }
+      },
+      "total_discount_set": {
+        "shop_money": {
+          "amount": "5.00",
+          "currency_code": "AUD"
+        },
+        "presentment_money": {
+          "amount": "5.00",
+          "currency_code": "AUD"
+        }
+      },
+      "discount_allocations": [
+        {
+          "amount": "5.00",
+          "discount_application_index": 0,
+          "amount_set": {
+            "shop_money": {
+              "amount": "5.00",
+              "currency_code": "AUD"
+            },
+            "presentment_money": {
+              "amount": "5.00",
+              "currency_code": "AUD"
+            }
+          }
+        }
+      ],
+      "duties": [],
+      "admin_graphql_api_id": "gid:\\/\\/shopify\\/LineItem\\/141249953214522974",
+      "tax_lines": []
+    }
+  ],
+  "fulfillments": [],
+  "refunds": [],
+  "total_tip_received": "0.0",
+  "original_total_duties_set": null,
+  "current_total_duties_set": null,
+  "admin_graphql_api_id": "gid:\\/\\/shopify\\/Order\\/820982911946154508",
+  "shipping_lines": [
+    {
+      "id": 271878346596884015,
+      "title": "Generic Shipping",
+      "price": "10.00",
+      "code": null,
+      "source": "shopify",
+      "phone": null,
+      "requested_fulfillment_service_id": null,
+      "delivery_category": null,
+      "carrier_identifier": null,
+      "discounted_price": "10.00",
+      "price_set": {
+        "shop_money": {
+          "amount": "10.00",
+          "currency_code": "AUD"
+        },
+        "presentment_money": {
+          "amount": "10.00",
+          "currency_code": "AUD"
+        }
+      },
+      "discounted_price_set": {
+        "shop_money": {
+          "amount": "10.00",
+          "currency_code": "AUD"
+        },
+        "presentment_money": {
+          "amount": "10.00",
+          "currency_code": "AUD"
+        }
+      },
+      "discount_allocations": [],
+      "tax_lines": []
+    }
+  ],
+  "billing_address": {
+    "first_name": "Bob",
+    "address1": "123 Billing Street",
+    "phone": "555-555-BILL",
+    "city": "Billtown",
+    "zip": "K2P0B0",
+    "province": "Kentucky",
+    "country": "United States",
+    "last_name": "Biller",
+    "address2": null,
+    "company": "My Company",
+    "latitude": null,
+    "longitude": null,
+    "name": "Bob Biller",
+    "country_code": "US",
+    "province_code": "KY"
+  },
+  "shipping_address": {
+    "first_name": "Steve",
+    "address1": "123 Shipping Street",
+    "phone": "555-555-SHIP",
+    "city": "Shippington",
+    "zip": "40003",
+    "province": "Kentucky",
+    "country": "United States",
+    "last_name": "Shipper",
+    "address2": null,
+    "company": "Shipping Company",
+    "latitude": null,
+    "longitude": null,
+    "name": "Steve Shipper",
+    "country_code": "US",
+    "province_code": "KY"
+  },
+  "customer": {
+    "id": 115310627314723954,
+    "email": "john@test.com",
+    "accepts_marketing": false,
+    "created_at": null,
+    "updated_at": null,
+    "first_name": "John",
+    "last_name": "Smith",
+    "orders_count": 0,
+    "state": "disabled",
+    "total_spent": "0.00",
+    "last_order_id": null,
+    "note": null,
+    "verified_email": true,
+    "multipass_identifier": null,
+    "tax_exempt": false,
+    "phone": null,
+    "tags": "",
+    "last_order_name": null,
+    "currency": "AUD",
+    "accepts_marketing_updated_at": null,
+    "marketing_opt_in_level": null,
+    "admin_graphql_api_id": "gid:\\/\\/shopify\\/Customer\\/115310627314723954",
+    "default_address": {
+      "id": 715243470612851245,
+      "customer_id": 115310627314723954,
+      "first_name": null,
+      "last_name": null,
+      "company": null,
+      "address1": "123 Elm St.",
+      "address2": null,
+      "city": "Ottawa",
+      "province": "Ontario",
+      "country": "Canada",
+      "zip": "K2H7A8",
+      "phone": "123-123-1234",
+      "name": "",
+      "province_code": "ON",
+      "country_code": "CA",
+      "country_name": "Canada",
+      "default": true
+    }
+  }
+}

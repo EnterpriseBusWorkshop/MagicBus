@@ -1,0 +1,15 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">Message Details</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <pre>{{messageJson}}</pre>
+</div>
+<div class="modal-footer">
+  <div class="pull-right">
+    <button class="btn btn-warning" (click)="resubmitMessage()" *ngIf="canResubmit">Resubmit Message</button>
+  </div>
+</div>
+

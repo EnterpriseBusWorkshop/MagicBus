@@ -1,0 +1,41 @@
+<div *ngIf="pagedMessages$ | async as pagedMessages">
+
+<div class="row" >
+  <div class="col-md-8" *ngIf="totalRecords > pagedMessages.pageSize">
+    <pagination [totalItems]="totalRecords" [itemsPerPage]="pagedMessages.pageSize"
+                [boundaryLinks]="true" [maxSize]="8"
+                [formControl]="paginationControl"></pagination>
+  </div>
+  <div class="col-md-4">
+    <div class="text-right">Showing {{pageFrom}} to {{pageTo}} of {{totalRecords}} </div>
+  </div>
+</div>
+
+<table class='table table-striped table-hover' aria-labelledby="tableLabel" >
+  <thead>
+    <tr>
+      <th>Sequence Number</th>
+      <th>Id</th>
+      <th>MessageDate</th>
+      <th>CorrelationId</th>
+      <th>MessageType</th>
+      <th>DeadLetterReason</th>
+      <th>DeadLetterErrorDescription</th>
+      <th>Dead Letter Queue</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let message of pagedMessages.messages" (click)="openMessageModal(message)">
+      <td>{{ message.sequenceNumber }}</td>
+      <td>{{ message.id }}</td>
+      <td>{{ message.messageDate | date: 'dd-MM-yyyy HH:mm:ss' }}</td>
+      <td>{{ message.message.correlationId }}</td>
+      <td>{{ message.messageTypeName }}</td>
+      <td>{{ message.deadLetterReason }}</td>
+      <td>{{ message.deadLetterErrorDescription }}</td>
+      <td>{{ message.subscriptionName }}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<!-- todo add pagination here -->

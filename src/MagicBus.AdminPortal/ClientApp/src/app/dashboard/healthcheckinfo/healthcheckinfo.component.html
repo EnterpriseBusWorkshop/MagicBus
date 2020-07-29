@@ -1,0 +1,59 @@
+
+<div class="accordion" id="accordionExample1">
+    <div *ngFor="let message of messages$ | async; let i = index;" [attr.class]="'card bg-'+bootstrapStatus[healthCheckResponseStatus[message.status]]"  [attr.id]="'accordion_' + i">
+            <div class="card-header" [attr.id]="'headingOne_' + i">
+             <h2 class="mb-0" >
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" [attr.data-target]="'#collapseOne_' + i" aria-expanded="true" [attr.aria-controls]="'collapseOne_' + i">
+                  <i [attr.class]="'fas '+faIconStatus[healthCheckResponseStatus[message.status]]"></i>&nbsp;&nbsp;&nbsp;&nbsp;{{ message.healthCheckRequest.messageDate | date: 'dd-MM-yyyy HH:mm:ss' }} - ESB Health Check
+                </button>
+              </h2>
+            </div>
+
+            <div [attr.id]="'collapseOne_' + i" class="collapse hide" [attr.aria-labelledby]="'headingOne_' + i" data-parent="#accordionExample1">
+              <div class="card-body bg-light">
+                <table class='table table-striped table-hover' aria-labelledby="tableLabel">
+                    <thead>
+                    <tr>
+                      <th>MessageDate</th>
+                      <th>AppName</th>
+                      <th>Message</th>
+                      <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <ng-container *ngFor="let response of message.healthCheckResponses">
+                    <tr  [attr.class]="'table-' + bootstrapStatus[healthCheckResponseStatus[response.responseStatus]]">
+                      <td>{{ response.messageDate | date: 'dd-MM-yyyy HH:mm:ss' }}</td>
+                      <td>{{ response.appName }}</td>
+                      <td>{{ response.description }}</td>
+                      <td>{{ healthCheckResponseStatus[response.responseStatus] }}</td>
+                    </tr>
+                    <tr *ngIf="response.testResults && response.testResults.length > 0">
+                      <td colspan="4">
+                        <table class="table table-striped table-sm">
+                          <thead>
+                            <tr>
+                              <th>Name</th>
+                              <th>Message</th>
+                              <th>Status</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let test of response.testResults" [attr.class]="'table-' + bootstrapStatus[healthCheckResponseStatus[test.responseStatus]]">
+                              <td>{{ test.name }}</td>
+                              <td>{{ test.message }}</td>
+                              <td>{{ healthCheckResponseStatus[test.responseStatus] }}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    </ng-container>
+
+
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+          </div>
+  </div>

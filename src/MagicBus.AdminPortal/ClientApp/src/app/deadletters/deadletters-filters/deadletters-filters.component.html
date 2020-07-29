@@ -1,0 +1,74 @@
+<div class="card">
+  <div class="card-header">
+    Filters
+  </div>
+  <div class="card-body">
+    <form [formGroup]="formGroup">
+      <div class="row">
+        <div class="col-8 form-group">
+          <div class="row">
+            <label for="dates" class="col-6">Date / Time</label>
+            <div class="col-6 text-right">
+              <div class="btn-group mb-1" dropdown>
+                <button id="button-basic" dropdownToggle type="button" class="btn btn-secondary btn-sm dropdown-toggle"
+                        aria-controls="dropdown-basic">
+                 Quick select <span class="caret"></span>
+                </button>
+                <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                    role="menu" aria-labelledby="button-basic">
+                  <li role="menuitem"><a class="dropdown-item" (click)="selectLast10Minutes()">Last 10 Minutes</a></li>
+                  <li role="menuitem"><a class="dropdown-item" (click)="selectLast30Minutes()">Last 30 Minutes</a></li>
+                  <li role="menuitem"><a class="dropdown-item" (click)="selectLastHour()">Last Hour</a></li>
+                  <li role="menuitem"><a class="dropdown-item" (click)="selectLast4Hours()">Last 4 Hours</a></li>
+                  <li role="menuitem"><a class="dropdown-item" (click)="selectToday()">Today</a></li>
+                  <li role="menuitem"><a class="dropdown-item" (click)="selectYesterday()">Yesterday</a></li>
+                  <li role="menuitem"><a class="dropdown-item" (click)="selectThisWeek()">This Week</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <fieldset id="dates">
+            <div class="row">
+              <div class="col-6">
+                <input type="text"
+                       formControlName="fromDate"
+                       placeholder="From"
+                       class="form-control"
+                       bsDatepicker [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }">
+                <app-time-picker formControlName="fromTime" ></app-time-picker>
+              </div>
+              <div class="col-6">
+                <input type="text"
+                       formControlName="toDate"
+                       placeholder="To"
+                       class="form-control"
+                       bsDatepicker [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }">
+                <app-time-picker formControlName="toTime"></app-time-picker>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="col-4 form-group">
+          <label for="selectQueue">Dead Letter Queue</label>
+          <select class="form-control" id="selectQueue" formControlName="sbQueue">
+            <option *ngFor="let serviceBusQueue of serviceBusQueues$ | async" [value]="serviceBusQueue">{{serviceBusQueue}}</option>
+          </select>
+          <label for="selectType">Message Type</label>
+          <select class="form-control" id="selectType" formControlName="typeName">
+            <option></option>
+            <option *ngFor="let messageType of messageTypes$ | async" [value]="messageType.fullName">{{messageType.name}}</option>
+          </select>
+          <label for="selectCorrelationId">CorrelationId</label>
+          <input class="form-control" id="selectCorrelationId" formControlName="correlationId">
+          <label for="selectMessageId">MessageId</label>
+          <input class="form-control" id="selectMessageId" formControlName="messageId">
+        </div>
+      </div>
+      <button id="button-basic" type="button" class="btn btn-secondary btn-sm" (click)="formReset()">
+        Reset Filters
+      </button>
+    </form>
+  </div>
+</div>
+
