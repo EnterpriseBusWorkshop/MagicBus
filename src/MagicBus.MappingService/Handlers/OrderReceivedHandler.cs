@@ -8,6 +8,7 @@ using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace MagicBus.MappingService.Handlers
 {
@@ -17,16 +18,27 @@ namespace MagicBus.MappingService.Handlers
         private readonly MappingServiceCosmosContext _cosmos;
         private readonly IMessageSender _messageSender;
         private readonly IProductLookupStore _productLookupStore;
+        private readonly ILogger<OrderReceivedHandler> _logger;
 
-        public OrderReceivedHandler(MappingServiceCosmosContext cosmos, IMessageSender messageSender, IProductLookupStore productLookupStore)
+        public OrderReceivedHandler(MappingServiceCosmosContext cosmos, IMessageSender messageSender, IProductLookupStore productLookupStore, ILogger<OrderReceivedHandler> logger)
         {
             _cosmos = cosmos;
             _messageSender = messageSender;
             _productLookupStore = productLookupStore;
+            _logger = logger;
         }
 
         protected override async Task Handle(OrderReceived request, CancellationToken cancellationToken)
         {
+            var isAlreadySubmitted = (await _cosmos.CloudOrders
+                .Get(o => o.ShopifyOrderId == request.OrderDetails.Id.Value.ToString())).Any();
+
+            if (isAlreadySubmitted)
+            {
+                _logger.LogWarning("Order {OrderId} already processed", request.OrderDetails.Id);
+                return;
+            }
+
             var mapEntity = new CloudOrderMapping()
             {
                 ShopifyOrderId = request.OrderDetails.Id?.ToString(),
